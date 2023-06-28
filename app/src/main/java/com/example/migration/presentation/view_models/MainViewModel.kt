@@ -1,4 +1,4 @@
-package com.migration.presentation
+package com.example.migration.presentation.view_models
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,7 +1,7 @@
 package com.migration.data.repository
 
 import com.migration.data.storage.CountryStorage
-import com.migration.data.storage.DataCountry
+import com.example.data.models.DataCountry
 import com.migration.domain.models.Country
 import com.migration.domain.repository.CountryRepository
 

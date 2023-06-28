@@ -10,7 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.migration.databinding.FragmentMainScreenBinding
+import com.example.migration.presentation.view_models.MainViewModel
+import com.example.migration.presentation.view_models.MainViewModelFactory
 import com.migration.app.App
+import com.migration.domain.models.Country
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
@@ -59,7 +62,7 @@ class MainScreenFragment : Fragment(), CountryAdapter.Listener {
         }
     }
 
-    override fun onClick(country: com.migration.domain.models.Country) {
+    override fun onClick(country: Country) {
         startActivity(Intent(requireContext(), CountryActivity::class.java).apply {
             putExtra("country", country)
         })

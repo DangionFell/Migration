@@ -1,4 +1,4 @@
-package com.migration.data.storage
+package com.example.data.models
 
 import java.io.Serializable
 
