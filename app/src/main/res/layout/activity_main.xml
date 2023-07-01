@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.main_screen.MainActivity">
 
     <TextView
         android:id="@+id/logo"
@@ -13,7 +13,7 @@
         android:background="@color/primary"
         android:fontFamily="@font/dela_gothic_one"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="4dp"
         android:text="@string/app_name"
         android:textColor="@color/black"
         android:textSize="48sp"

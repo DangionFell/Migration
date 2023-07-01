@@ -1,4 +1,4 @@
-package com.migration.presentation
+package com.example.migration.presentation.main_screen
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,12 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.migration.databinding.FragmentMainScreenBinding
-import com.example.migration.presentation.view_models.MainViewModel
-import com.example.migration.presentation.view_models.MainViewModelFactory
-import com.migration.app.App
-import com.migration.domain.models.Country
+import com.example.migration.app.App
+import com.example.domain.models.Country
+import com.example.migration.presentation.country_screen.CountryActivity
 import kotlinx.coroutines.*
 import javax.inject.Inject
+
+private const val ARG_COUNTRY = "country"
 
 class MainScreenFragment : Fragment(), CountryAdapter.Listener {
 
@@ -28,43 +29,50 @@ class MainScreenFragment : Fragment(), CountryAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
 
         (requireContext().applicationContext as App).appComponent.inject(this)
 
         vm = ViewModelProvider(this, vmFactory).get(MainViewModel::class.java)
+
+        loadListOfCountries()
     }
 
-    override fun onCreateView(
+    override fun onCreateView (
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
-        val adapter = CountryAdapter(this@MainScreenFragment)
+        val adapter = CountryAdapter(this)
         initRC(adapter)
 
-        vm.countryList.observe(viewLifecycleOwner) {
-            adapter.addCountryList(it)
-        }
+        observeViewModel(adapter)
 
         return binding.root
     }
 
-    private fun initRC(adapter: CountryAdapter){
+    private fun initRC(adapter: CountryAdapter) {
         binding.apply {
             rcView.layoutManager = LinearLayoutManager(requireContext())
             rcView.adapter = adapter
-            lifecycleScope.launch {
-                vm.rcLoad()
-            }
+        }
+    }
+
+    private fun loadListOfCountries() {
+        lifecycleScope.launch {
+            vm.loadData()
+        }
+    }
+
+    private fun observeViewModel(adapter: CountryAdapter) {
+        vm.countryList.observe(viewLifecycleOwner) {
+            adapter.addCountryList(it)
         }
     }
 
     override fun onClick(country: Country) {
         startActivity(Intent(requireContext(), CountryActivity::class.java).apply {
-            putExtra("country", country)
+            putExtra(ARG_COUNTRY, country)
         })
     }
 }

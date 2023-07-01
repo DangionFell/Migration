@@ -1,26 +1,17 @@
-package com.migration.di
+package com.example.migration.di
 
-import com.example.domain.usecase.LoadListOfMethodsUseCase
-import com.example.migration.presentation.view_models.MethodsScreenViewModelFactory
-import com.migration.domain.usecase.LoadListOfCountriesUseCase
-import com.example.migration.presentation.view_models.MainViewModelFactory
+import com.example.domain.usecase.LoadListOfCountriesUseCase
+import com.example.migration.presentation.main_screen.MainViewModelFactory
 import dagger.Module
 import dagger.Provides
 
 @Module
-class AppModule {
+class AppModule() {
 
     @Provides
-    fun provideMainViewModelFactory(
+    fun provideMainViewModelFactory (
         loadListOfCountriesUseCase: LoadListOfCountriesUseCase
     ) : MainViewModelFactory {
         return MainViewModelFactory(loadListOfCountriesUseCase)
-    }
-
-    @Provides
-    fun provideMethodsScreenViewModelFactory(
-        loadListOfMethodsUseCase: LoadListOfMethodsUseCase
-    ) : MethodsScreenViewModelFactory {
-        return MethodsScreenViewModelFactory(loadListOfMethodsUseCase)
     }
 }

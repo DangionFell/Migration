@@ -1,4 +1,4 @@
-package com.migration.presentation
+package com.example.migration.presentation.main_screen
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,21 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.migration.R
 import com.example.migration.databinding.MainCardItemBinding
-import com.migration.domain.models.Country
+import com.example.domain.models.Country
 
 class CountryAdapter(private val listener : Listener): RecyclerView.Adapter<CountryAdapter.CountryHolder>() {
 
-    private val countryList = mutableListOf<Country>()
+    private var countryList = listOf<Country>()
 
     class CountryHolder(item: View): RecyclerView.ViewHolder(item) {
         private val binding = MainCardItemBinding.bind(item)
-        fun bind(country: Country, context: Context, listener: Listener) = with(binding){
+        fun bind(country: Country, context: Context, listener: Listener) = with(binding) {
             nameText.text = country.name
-            methodsText.text = country.migration_methods
+            methodsText.text = country.migrationMethods
             Glide.with(context).load(country.backUrl).into(backgroundImage)
             Glide.with(context).load(country.flagUrl).into(flagImage)
 
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 listener.onClick(country)
             }
         }
@@ -44,12 +44,12 @@ class CountryAdapter(private val listener : Listener): RecyclerView.Adapter<Coun
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addCountryList(list : List<Country>){
-        countryList.addAll(list)
+    fun addCountryList(list : List<Country>) {
+        countryList = list
         notifyDataSetChanged()
     }
 
-    interface Listener{
+    interface Listener {
         fun onClick(country: Country)
     }
 }

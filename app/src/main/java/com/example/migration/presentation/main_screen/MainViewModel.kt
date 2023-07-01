@@ -1,17 +1,17 @@
-package com.example.migration.presentation.view_models
+package com.example.migration.presentation.main_screen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.migration.domain.models.Country
-import com.migration.domain.usecase.LoadListOfCountriesUseCase
+import com.example.domain.models.Country
+import com.example.domain.usecase.LoadListOfCountriesUseCase
 
-class MainViewModel(
+class MainViewModel (
     private val loadListOfCountriesUseCase: LoadListOfCountriesUseCase
 ) : ViewModel() {
 
     val countryList = MutableLiveData<List<Country>>()
 
-    suspend fun rcLoad() {
+    suspend fun loadData() {
         countryList.value = loadListOfCountriesUseCase.execute()
     }
 

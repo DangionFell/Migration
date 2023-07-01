@@ -1,4 +1,4 @@
-package com.migration.data.storage
+package com.example.data.storage
 
 import com.example.data.models.DataCountry
 import com.google.firebase.firestore.ktx.firestore

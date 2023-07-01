@@ -1,10 +1,9 @@
 package com.example.domain.repository
 
-import com.example.domain.models.Method
-
+import com.example.domain.models.MigrationMethod
 
 interface MethodRepository {
 
-    suspend fun getMethodList(path: String) : List<Method>
+    suspend fun getMethodList(path: String) : List<MigrationMethod>
 
 }

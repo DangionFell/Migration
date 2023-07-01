@@ -1,8 +1,8 @@
-package com.migration.app
+package com.example.migration.app
 
 import android.app.Application
-import com.migration.di.AppComponent
-import com.migration.di.DaggerAppComponent
+import com.example.migration.di.AppComponent
+import com.example.migration.di.DaggerAppComponent
 
 class App: Application() {
 

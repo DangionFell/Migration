@@ -1,22 +1,22 @@
 package com.example.data.repository
 
-import com.example.data.models.DataMethod
+import com.example.data.models.DataMigrationMethod
 import com.example.data.storage.MethodStorage
-import com.example.domain.models.Method
+import com.example.domain.models.MigrationMethod
 import com.example.domain.repository.MethodRepository
 
 class MethodRepositoryImpl(private val methodStorage: MethodStorage) : MethodRepository {
 
-    override suspend fun getMethodList(path: String): List<Method> {
+    override suspend fun getMethodList(path: String): List<MigrationMethod> {
         return mapToDomain(methodStorage.getMethodList(path))
     }
 
-    private fun mapToDomain(dataMethod: List<DataMethod>): List<Method> {
-        val result = mutableListOf<Method>()
+    private fun mapToDomain(dataMigrationMethod: List<DataMigrationMethod>): List<MigrationMethod> {
+        val result = mutableListOf<MigrationMethod>()
 
-        dataMethod.forEach {
+        dataMigrationMethod.forEach {
             result.add(
-                Method(
+                MigrationMethod(
                     it.title?: "",
                     it.text?: "",
                 )

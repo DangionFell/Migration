@@ -1,9 +1,9 @@
-package com.migration.di
+package com.example.migration.di
 
 import com.example.domain.repository.MethodRepository
 import com.example.domain.usecase.LoadListOfMethodsUseCase
-import com.migration.domain.repository.CountryRepository
-import com.migration.domain.usecase.LoadListOfCountriesUseCase
+import com.example.domain.repository.CountryRepository
+import com.example.domain.usecase.LoadListOfCountriesUseCase
 import dagger.Module
 import dagger.Provides
 

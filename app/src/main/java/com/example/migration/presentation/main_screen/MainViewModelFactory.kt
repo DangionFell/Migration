@@ -1,13 +1,15 @@
-package com.example.migration.presentation.view_models
+package com.example.migration.presentation.main_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.migration.domain.usecase.LoadListOfCountriesUseCase
+import com.example.domain.usecase.LoadListOfCountriesUseCase
 
-class MainViewModelFactory(
-    val loadListOfCountriesUseCase: LoadListOfCountriesUseCase
+
+class MainViewModelFactory (
+    private val loadListOfCountriesUseCase: LoadListOfCountriesUseCase
 ): ViewModelProvider.Factory {
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
             loadListOfCountriesUseCase

@@ -1,10 +1,9 @@
-package com.migration.data.repository
+package com.example.data.repository
 
-import com.migration.data.storage.CountryStorage
+import com.example.data.storage.CountryStorage
 import com.example.data.models.DataCountry
-import com.migration.domain.models.Country
-import com.migration.domain.repository.CountryRepository
-
+import com.example.domain.models.Country
+import com.example.domain.repository.CountryRepository
 
 class CountryRepositoryImpl(private val countryStorage: CountryStorage) : CountryRepository {
 
@@ -19,10 +18,10 @@ class CountryRepositoryImpl(private val countryStorage: CountryStorage) : Countr
             result.add(
                 Country(
                     it.name?: "",
-                    it.migration_methods?: "",
+                    it.migrationMethods?: "",
                     it.backUrl?: "",
                     it.flagUrl?: "",
-                    it.methods_path?: ""
+                    it.methodsPath?: ""
                 )
             )
         }

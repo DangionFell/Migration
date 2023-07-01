@@ -1,7 +1,7 @@
-package com.migration.domain.usecase
+package com.example.domain.usecase
 
-import com.migration.domain.models.Country
-import com.migration.domain.repository.CountryRepository
+import com.example.domain.models.Country
+import com.example.domain.repository.CountryRepository
 
 class LoadListOfCountriesUseCase(private val countryRepository: CountryRepository) {
 

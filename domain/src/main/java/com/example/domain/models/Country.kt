@@ -1,10 +1,10 @@
-package com.migration.domain.models
+package com.example.domain.models
 
-data class Country(
+data class Country (
     val name: String,
-    val migration_methods: String,
+    val migrationMethods: String,
     val backUrl: String,
     val flagUrl: String,
-    val methods_path: String
+    val methodsPath: String
 ) : java.io.Serializable
 

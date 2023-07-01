@@ -1,6 +1,6 @@
 package com.example.domain.models
 
-data class Method(
+data class MigrationMethod (
     val title: String,
     val text: String
-)
+) : SecondScreenItem()

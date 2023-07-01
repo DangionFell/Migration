@@ -1,18 +1,21 @@
-package com.migration.presentation
+package com.example.migration.presentation.country_screen
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.migration.R
-import com.example.migration.presentation.CountryScreenFragment
-import com.migration.domain.models.Country
+import com.example.domain.models.Country
+
+private const val ARG_COUNTRY = "country"
 
 class CountryActivity : AppCompatActivity() {
 
+    @SuppressLint("CommitTransaction")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country)
 
-        val country = intent.getSerializableExtra("country") as Country
+        val country = intent.getSerializableExtra(ARG_COUNTRY) as Country
 
         supportFragmentManager.beginTransaction().replace(
             R.id.frame,

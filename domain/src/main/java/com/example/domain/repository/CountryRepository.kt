@@ -1,6 +1,6 @@
-package com.migration.domain.repository
+package com.example.domain.repository
 
-import com.migration.domain.models.Country
+import com.example.domain.models.Country
 
 interface CountryRepository {
 

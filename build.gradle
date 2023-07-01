@@ -1,4 +1,11 @@
 buildscript {
+    ext {
+        glide_version = '4.15.1'
+        lifecycle_version = '2.4.0'
+        dagger_version = '2.46.1'
+        adapterdelegates_version = '4.3.0'
+    }
+
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'
     }
