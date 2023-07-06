@@ -1,4 +1,4 @@
-package com.example.migration.presentation.main_screen
+package com.example.migration.presentation.mainscreen
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,11 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.migration.databinding.FragmentMainScreenBinding
 import com.example.migration.app.App
 import com.example.domain.models.Country
-import com.example.migration.presentation.country_screen.CountryActivity
+import com.example.migration.presentation.countryscreen.CountryActivity
 import kotlinx.coroutines.*
 import javax.inject.Inject
-
-private const val ARG_COUNTRY = "country"
 
 class MainScreenFragment : Fragment(), CountryAdapter.Listener {
 
@@ -74,5 +72,9 @@ class MainScreenFragment : Fragment(), CountryAdapter.Listener {
         startActivity(Intent(requireContext(), CountryActivity::class.java).apply {
             putExtra(ARG_COUNTRY, country)
         })
+    }
+
+    companion object {
+        private const val ARG_COUNTRY = "country"
     }
 }

@@ -1,4 +1,4 @@
-package com.example.migration.presentation.main_screen
+package com.example.migration.presentation.mainscreen
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

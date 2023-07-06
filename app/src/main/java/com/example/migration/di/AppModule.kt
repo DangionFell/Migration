@@ -1,7 +1,7 @@
 package com.example.migration.di
 
 import com.example.domain.usecase.LoadListOfCountriesUseCase
-import com.example.migration.presentation.main_screen.MainViewModelFactory
+import com.example.migration.presentation.mainscreen.MainViewModelFactory
 import dagger.Module
 import dagger.Provides
 

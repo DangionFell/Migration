@@ -15,10 +15,13 @@
         android:theme="@style/Theme.Migration"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.country_screen.CountryActivity"
+            android:name=".presentation.methodinfoscreen.MethodInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.main_screen.MainActivity"
+            android:name=".presentation.countryscreen.CountryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.mainscreen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

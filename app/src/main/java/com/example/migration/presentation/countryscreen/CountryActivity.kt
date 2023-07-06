@@ -1,12 +1,10 @@
-package com.example.migration.presentation.country_screen
+package com.example.migration.presentation.countryscreen
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.migration.R
 import com.example.domain.models.Country
-
-private const val ARG_COUNTRY = "country"
 
 class CountryActivity : AppCompatActivity() {
 
@@ -21,5 +19,9 @@ class CountryActivity : AppCompatActivity() {
             R.id.frame,
             CountryScreenFragment.newInstance(country)
         ).commit()
+    }
+
+    companion object {
+        private const val ARG_COUNTRY = "country"
     }
 }

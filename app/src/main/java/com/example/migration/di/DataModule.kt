@@ -1,13 +1,12 @@
 package com.example.migration.di
 
-import com.example.data.repository.MethodRepositoryImpl
-import com.example.data.storage.FirebaseMethodStorage
-import com.example.data.storage.MethodStorage
-import com.example.domain.repository.MethodRepository
+import com.example.data.repository.MigrationMethodRepositoryImpl
+import com.example.domain.repository.MigrationMethodRepository
 import com.example.data.repository.CountryRepositoryImpl
-import com.example.data.storage.CountryStorage
-import com.example.data.storage.FirebaseCountryStorage
+import com.example.data.repository.MigrationMethodInfoRepositoryImpl
+import com.example.data.storage.*
 import com.example.domain.repository.CountryRepository
+import com.example.domain.repository.MigrationMethodInfoRepository
 import dagger.Module
 import dagger.Provides
 
@@ -30,8 +29,17 @@ class DataModule {
     }
 
     @Provides
-    fun provideMethodRepository(methodStorage: MethodStorage) : MethodRepository {
-        return MethodRepositoryImpl(methodStorage)
+    fun provideMethodRepository(methodStorage: MethodStorage) : MigrationMethodRepository {
+        return MigrationMethodRepositoryImpl(methodStorage)
     }
 
+    @Provides
+    fun provideMethodInfoStorage(): MethodInfoStorage {
+        return FirebaseMethodInfoStorage()
+    }
+
+    @Provides
+    fun provideMethodInfoRepository(methodInfoStorage: MethodInfoStorage) : MigrationMethodInfoRepository {
+        return MigrationMethodInfoRepositoryImpl(methodInfoStorage)
+    }
 }

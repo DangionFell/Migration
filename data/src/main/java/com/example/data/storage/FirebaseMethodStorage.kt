@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class FirebaseMethodStorage : MethodStorage {
+class FirebaseMethodStorage: MethodStorage {
     override suspend fun getMethodList(path: String):
             List<DataMigrationMethod> = withContext(Dispatchers.IO) {
         val db = Firebase.firestore

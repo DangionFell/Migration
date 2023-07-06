@@ -1,10 +1,10 @@
-package com.example.migration.presentation.country_screen.delagates
+package com.example.migration.presentation.countryscreen.delegates
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.models.SecondScreenItem
 import com.example.domain.models.MigrationMethod
+import com.example.domain.models.SecondScreenItem
 import com.example.migration.databinding.MethodCardItemBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 

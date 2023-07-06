@@ -1,6 +1,7 @@
-package com.example.migration.presentation.country_screen
+package com.example.migration.presentation.countryscreen
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +10,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.domain.models.SecondScreenItem
 import com.example.domain.models.Country
 import com.example.domain.models.MigrationMethod
+import com.example.domain.models.SecondScreenItem
 import com.example.migration.databinding.FragmentCoutryScreenBinding
 import com.example.migration.app.App
-import com.example.migration.presentation.country_screen.delagates.HatDelegate
-import com.example.migration.presentation.country_screen.delagates.MigrationMethodDelegate
+import com.example.migration.presentation.countryscreen.delegates.HeaderDelegate
+import com.example.migration.presentation.countryscreen.delegates.MigrationMethodDelegate
+import com.example.migration.presentation.methodinfoscreen.MethodInfoActivity
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-private const val ARG_COUNTRY = "country"
 
 class CountryScreenFragment : Fragment(), MigrationMethodDelegate.Listener {
     private var country: Country? = null
@@ -28,7 +28,7 @@ class CountryScreenFragment : Fragment(), MigrationMethodDelegate.Listener {
     private lateinit var binding: FragmentCoutryScreenBinding
 
     private val adapter = ListDelegationAdapter<List<SecondScreenItem>>(
-        HatDelegate(),
+        HeaderDelegate(),
         MigrationMethodDelegate(this)
     )
 
@@ -65,6 +65,10 @@ class CountryScreenFragment : Fragment(), MigrationMethodDelegate.Listener {
     }
 
     companion object {
+
+        private const val ARG_COUNTRY = "country"
+        private const val ARG_METHOD = "method"
+
         @JvmStatic
         fun newInstance(country: Country) =
             CountryScreenFragment().apply {
@@ -96,6 +100,8 @@ class CountryScreenFragment : Fragment(), MigrationMethodDelegate.Listener {
     }
 
     override fun onClick(method: MigrationMethod) {
-        println(method.title)
+        startActivity(Intent(requireContext(), MethodInfoActivity::class.java).apply {
+            putExtra(ARG_METHOD, method)
+        })
     }
 }
