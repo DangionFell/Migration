@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "628358056521",
+    "project_id": "migration-322ea",
+    "storage_bucket": "migration-322ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628358056521:android:95e2d8324375b6502b0d98",
+        "android_client_info": {
+          "package_name": "com.example.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628358056521-rfkeqor87qboa0sippv37ve9aoqmgu8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCH90pYveRHkDAWr9o_N8rB00OPOVgs20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628358056521-rfkeqor87qboa0sippv37ve9aoqmgu8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
