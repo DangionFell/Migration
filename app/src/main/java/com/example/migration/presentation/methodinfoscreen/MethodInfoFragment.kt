@@ -13,7 +13,9 @@ import com.example.domain.models.MigrationMethod
 import com.example.domain.models.MigrationMethodInfo
 import com.example.migration.app.App
 import com.example.migration.databinding.FragmentMethodInfoBinding
+import com.example.migration.presentation.getconsultationscreen.GetConsultationFragment
 import com.example.migration.presentation.methodinfoscreen.delegates.*
+import com.example.migration.presentation.methodinfoscreen.models.MethodInfoForRequest
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -96,11 +98,13 @@ class MethodInfoFragment : Fragment(), BannerDelegate.Listener {
             adapter.items = it
             adapter.notifyDataSetChanged()
         }
+
     }
 
     override fun onClick() {
-        println("Click")
+        method?.let { GetConsultationFragment.newInstance(
+            MethodInfoForRequest(it.methodInfoPath.split("/")[1], it.title))
+            .show(parentFragmentManager, "Tag") }
     }
-
 
 }

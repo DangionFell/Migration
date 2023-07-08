@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 class FirebaseMethodInfoStorage: MethodInfoStorage {
     override suspend fun getInfo(path: String):
             List<DataMigrationMethodInfo> = withContext(Dispatchers.IO) {
+        if(path == "") return@withContext listOfNotNull()
         val db = Firebase.firestore
         val itemsCollection = db.collection(path)
         val itemsList = mutableListOf<DataMigrationMethodInfo>()

@@ -5,7 +5,7 @@ import com.example.data.storage.MethodInfoStorage
 import com.example.domain.models.MigrationMethodInfo
 import com.example.domain.repository.MigrationMethodInfoRepository
 
-class MigrationMethodInfoRepositoryImpl(private val methodInfoStorage: MethodInfoStorage) : MigrationMethodInfoRepository {
+class MigrationMethodInfoRepositoryImpl(private val methodInfoStorage: MethodInfoStorage): MigrationMethodInfoRepository {
 
     override suspend fun getInfo(path: String): List<MigrationMethodInfo> {
         return mapToDomain(methodInfoStorage.getInfo(path))
