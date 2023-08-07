@@ -9,9 +9,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.domain.models.ConsultationRequest
+import com.example.migration.R
 import com.example.migration.app.App
 import com.example.migration.databinding.FragmentGetConsultationBinding
 import com.example.migration.presentation.methodinfoscreen.models.MethodInfoForRequest
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -28,6 +30,17 @@ class GetConsultationFragment : BottomSheetDialogFragment() {
     lateinit var vmFactory: GetConsultationScreenViewModelFactory
 
     private lateinit var vm: GetConsultationScreenViewModel
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.findViewById<View>(R.id.design_bottom_sheet)?.apply {
+            layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            val behavior = BottomSheetBehavior.from(this)
+            behavior.peekHeight = resources.displayMetrics.heightPixels
+            requestLayout()
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
