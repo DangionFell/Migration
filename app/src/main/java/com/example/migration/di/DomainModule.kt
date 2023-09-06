@@ -1,9 +1,7 @@
 package com.example.migration.di
 
-import com.example.domain.repository.MethodRepository
-import com.example.domain.usecase.LoadListOfMethodsUseCase
-import com.example.domain.repository.CountryRepository
-import com.example.domain.usecase.LoadListOfCountriesUseCase
+import com.example.domain.repository.*
+import com.example.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 
@@ -16,7 +14,17 @@ class DomainModule {
     }
 
     @Provides
-    fun provideLoadListOfMethodsUseCase(methodRepository: MethodRepository) : LoadListOfMethodsUseCase {
-        return LoadListOfMethodsUseCase(methodRepository)
+    fun provideLoadListOfMethodsUseCase(migrationMethodRepository: MigrationMethodRepository) : LoadListOfMigrationMethodsUseCase {
+        return LoadListOfMigrationMethodsUseCase(migrationMethodRepository)
+    }
+
+    @Provides
+    fun provideLoadMigrationMethodInfoUseCase(migrationMethodInfoRepository: MigrationMethodInfoRepository) : LoadMigrationMethodInfoUseCase {
+        return LoadMigrationMethodInfoUseCase(migrationMethodInfoRepository)
+    }
+
+    @Provides
+    fun provideSaveConsultationRequestUseCase(consultationRequestRepository: ConsultationRequestRepository) : SaveConsultationRequestUseCase {
+        return SaveConsultationRequestUseCase(consultationRequestRepository)
     }
 }

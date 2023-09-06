@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">EXPLORE</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="country">Страна</string>
     <string name="methods">Методы</string>
     <string name="title">Заголовок</string>
     <string name="text">Текст</string>
+    <string name="enter_name">Введите ваше имя</string>
+    <string name="enter_phone">Введите ваш телефон</string>
+    <string name="enter_email">Введите ваш email</string>
+    <string name="enter_question">Введите ваш вопрос</string>
+    <string name="banner_text">Получить консультацию</string>
 </resources>
